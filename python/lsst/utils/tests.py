@@ -70,9 +70,9 @@ class MemoryTestCase(unittest.TestCase):
         if dafBase:
             gc.collect()
             global memId0, nleakPrintMax
-            nleak = dafBase.Citizen_census(0, memId0)
+            nleak = dafBase.Citizen_countCitizens(memId0)
             if nleak != 0:
-                print "\n%d Objects leaked:" % dafBase.Citizen_census(0, memId0)
+                print "\n%d Objects leaked:" % dafBase.Citizen_countCitizens(memId0)
 
                 if nleak <= nleakPrintMax:
                     print dafBase.Citizen_census(dafBase.cout, memId0)
@@ -82,7 +82,7 @@ class MemoryTestCase(unittest.TestCase):
                     for i in range(nleakPrintMax - 1, -1, -1):
                         print census[i].repr()
 
-                self.fail("Leaked %d blocks" % dafBase.Citizen_census(0, memId0))
+                self.fail("Leaked %d blocks" % dafBase.Citizen_countCitizens(memId0))
 
 #-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
